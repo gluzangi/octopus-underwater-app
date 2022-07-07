@@ -31,6 +31,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: apps
           IMAGE_TAG: nginx
         run: |
           # Build a docker container and

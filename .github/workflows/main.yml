@@ -53,6 +53,12 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
+# REFS
+#
+# 1) REFACTORING : https://blog.elantha.com/refactor-github-actions-workflow-into-a-script
+#
+# 2) COMPOSITE WORKFLOW : https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+#
   ci_on_merged:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest

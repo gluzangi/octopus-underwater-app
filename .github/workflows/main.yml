@@ -20,7 +20,7 @@ name: aws-ecr-image-push
 
 jobs:
   ci_on_feature:
-    name: Deploy
+    # name: Deploy
     runs-on: ubuntu-latest
     environment: development
 

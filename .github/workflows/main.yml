@@ -59,6 +59,8 @@ jobs:
 #
 # 2) COMPOSITE WORKFLOW : https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 #
+# 3) REUSABLE WORKFLOW : https://github.blog/2022-02-10-using-reusable-workflows-github-actions/
+#
   ci_on_merged:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest

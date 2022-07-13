@@ -5,14 +5,21 @@ on:
     paths:
       - 'static/**'
       - 'Dockerfile'
+
+#  pull_request:
+#    branches:
+#      - main
+
   pull_request:
-    branches:
-      - main
+    types:
+      - closed
+    # branches:
+    #   - main
 
 name: AWS ECR push
 
 jobs:
-  deploy:
+  ci_on_feature:
     name: Deploy
     runs-on: ubuntu-latest
     environment: development
@@ -45,3 +52,10 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+
+  ci_on_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo The PR was merged

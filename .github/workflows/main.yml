@@ -16,7 +16,7 @@ on:
     # branches:
     #   - main
 
-name: AWS ECR push
+name: aws-ecr-image-push
 
 jobs:
   ci_on_feature:
